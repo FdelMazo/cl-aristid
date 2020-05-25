@@ -7,17 +7,17 @@
 
 (defun turn-right (dir)
   (case dir
-    ('(0 1) (return-from turn-right '(1 0)))
-    ('(1 0) (return-from turn-right '(-1 0)))
+    ('(0 1) (return-from turn-right '(-1 0)))
     ('(-1 0) (return-from turn-right '(0 -1)))
-    ('(0 -1) (return-from turn-right '(0 1)))))
+    ('(0 -1) (return-from turn-right '(1 0)))
+    ('(1 0) (return-from turn-right '(0 1)))))
 
 (defun turn-left (dir)
   (case dir
-    ('(0 1) (return-from turn-left '(0 -1)))
+    ('(0 1) (return-from turn-left '(1 0)))
+    ('(1 0) (return-from turn-left '(0 -1)))
     ('(0 -1) (return-from turn-left '(-1 0)))
-    ('(-1 0) (return-from turn-left '(1 0)))
-    ('(1 0) (return-from turn-left '(0 1)))))
+    ('(-1 0) (return-from turn-left '(0 1)))))
 
 (defun draw-point (matrix point)
   (let ((x (first point))
@@ -56,5 +56,5 @@
           (draw matrix command-arr init-point)
           matrix))
 
-(defun draw-dragon (n &optional (dims '(50 50))  (init-point '(25 25))) (
+(defun draw-dragon (n &optional (dims '(500 500))  (init-point '(100 100))) (
   netpbm:write-to-file (format nil "dragon_~3,'0d.pbm" n) (dragon dims init-point n) :format :pbm :encoding :ascii :if-exists :supersede))
