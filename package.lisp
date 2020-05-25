@@ -2,4 +2,4 @@
 
 (defpackage #:cl-dragon
   (:use #:cl)
-  (:export :dragon))
+  (:export :draw-dragon))
