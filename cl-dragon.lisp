@@ -5,6 +5,36 @@
 (setf WHITE 1)
 (setf BLACK 0)
 
+(defun turn-right (dir)
+  (case dir
+    ('(0 1) (return-from turn-right '(1 0)))
+    ('(1 0) (return-from turn-right '(-1 0)))
+    ('(-1 0) (return-from turn-right '(0 -1)))
+    ('(0 -1) (return-from turn-right '(0 1)))))
+
+(defun turn-left (dir)
+  (case dir
+    ('(0 1) (return-from turn-left '(0 -1)))
+    ('(0 -1) (return-from turn-left '(-1 0)))
+    ('(-1 0) (return-from turn-left '(1 0)))
+    ('(1 0) (return-from turn-left '(0 1)))))
+
+(defun draw-point (matrix point)
+  (let ((x (first point))
+        (y (second point)))
+        (if (or (>= x (array-dimension matrix 0)) (>= y (array-dimension matrix 1)) (< x 0) (< y 0))
+          (return-from draw-point nil))
+        (setf (aref matrix x y) BLACK)))
+
+(defun draw (matrix command-arr point)
+  (let ((dir '(0 1)))
+      (loop for command in command-arr do
+        (case command
+          (F  (dotimes (n 2) (draw-point matrix (map-into point #'+ point dir))))
+          (RIGHT  (setf dir (turn-right dir)))
+          (LEFT  (setf dir (turn-left dir)))
+          (otherwise t)))))
+
 (defun commands (n &optional (command-arr '(F A)))
   (cond ((= n 0) (return-from commands command-arr)))
   (commands
@@ -16,15 +46,14 @@
         (otherwise (list item))))))
 
 (defun initial-matrix (dims init-point)
-  (let ((matrix (make-array dims :initial-element WHITE))
-        (x (car init-point))
-        (y (cadr init-point)))
-          (setf (aref matrix x y) BLACK)
+  (let ((matrix (make-array dims :initial-element WHITE)))
+        (draw-point matrix init-point)
           matrix))
 
 (defun dragon (dims init-point n)
   (let ((matrix (initial-matrix dims init-point))
         (command-arr (commands n)))
+          (draw matrix command-arr init-point)
           matrix))
 
 (defun draw-dragon (n &optional (dims '(50 50))  (init-point '(25 25))) (
