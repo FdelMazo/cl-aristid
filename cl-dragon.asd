@@ -6,6 +6,6 @@
   :license  "Specify license here"
   :version "0.0.1"
   :serial t
-  :depends-on (#:cl-netpbm)
+  :depends-on (#:cl-netpbm #:magicl)
   :components ((:file "package")
                (:file "cl-dragon")))

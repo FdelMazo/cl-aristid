@@ -6,6 +6,7 @@
 (setf BLACK 0)
 
 (defun turn-right (dir)
+	; '(* (cos (d2r deg))sqrt (+ (exp (first dir) 2) (exp (second dir) 2))))
   (case dir
     ('(0 1) (return-from turn-right '(-1 0)))
     ('(-1 0) (return-from turn-right '(0 -1)))
@@ -22,9 +23,9 @@
 (defun draw-point (matrix point)
   (let ((x (first point))
         (y (second point)))
-        (if (or (>= x (array-dimension matrix 0)) (>= y (array-dimension matrix 1)) (< x 0) (< y 0))
+        (if (or (>= x (second (magicl:shape matrix))) (>= y (first (magicl:shape matrix))) (< x 0) (< y 0))
           (return-from draw-point nil))
-        (setf (aref matrix x y) BLACK)))
+        (setf (magicl:tref matrix x y) BLACK)))
 
 (defun draw (matrix command-arr point)
   (let ((dir '(0 1)))
@@ -46,15 +47,16 @@
         (otherwise (list item))))))
 
 (defun initial-matrix (dims init-point)
-  (let ((matrix (make-array dims :initial-element WHITE)))
-        (draw-point matrix init-point)
-          matrix))
+  (let ((matrix (magicl:ones dims :type '(SIGNED-BYTE 32))))
+    (draw-point matrix init-point)
+    matrix))
+
 
 (defun dragon (dims init-point n)
   (let ((matrix (initial-matrix dims init-point))
         (command-arr (commands n)))
           (draw matrix command-arr init-point)
-          matrix))
+          (magicl:lisp-array matrix)))
 
-(defun draw-dragon (n &optional (dims '(500 500))  (init-point '(100 100))) (
+(defun draw-dragon (n &optional (dims '(1000 1000))  (init-point (list 500 500))) (
   netpbm:write-to-file (format nil "dragon_~3,'0d.pbm" n) (dragon dims init-point n) :format :pbm :encoding :ascii :if-exists :supersede))
