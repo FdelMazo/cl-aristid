@@ -3,6 +3,7 @@
 (in-package #:cl-dragon)
 
 (defconstant *BLACK* 0)
+(defconstant *WHITE* 1)
 
 ;; TO DO: Remove setfs -> not functional
 ;; TO DO: Refactor entirely the commands function -> is a bottleneck, and its iterative
@@ -26,12 +27,12 @@
   (let ((x (round (magicl:tref point 0 0)))
         (y (round (magicl:tref point 1 0))))
     (if (or
-          (>= x (second (magicl:shape matrix)))
-          (>= y (first (magicl:shape matrix)))
+          (>= x (array-dimension matrix 0))
+          (>= y (array-dimension matrix 1))
           (< x 0)
           (< y 0))
         (return-from draw-point point))
-    (setf (magicl:tref matrix x y) *BLACK*)))
+    (setf (aref matrix x y) *BLACK*)))
 
 (defun draw (matrix command-arr point)
   (let ((dir (magicl:from-list '(0 1) '(2 1) :type '(SINGLE-FLOAT))))
@@ -54,7 +55,7 @@
         (otherwise (list item))))))
 
 (defun initial-matrix (dims init-point)
-  (let ((matrix (magicl:ones dims :type '(SIGNED-BYTE 32))))
+  (let ((matrix (make-array dims :initial-element *WHITE*)))
     (draw-point matrix init-point)
     matrix))
 
@@ -62,7 +63,7 @@
   (let ((matrix (initial-matrix dims init-point))
         (command-arr (commands n)))
     (draw matrix command-arr init-point)
-    (magicl:lisp-array matrix)))
+    matrix))
 
 (defun draw-dragon (n &optional (dims '(1000 1000))  (init-point (magicl:from-list '(500 500) '(2 1) :type '(SINGLE-FLOAT))))
  (netpbm:write-to-file
