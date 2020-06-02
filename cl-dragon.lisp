@@ -5,9 +5,25 @@
 (defconstant *BLACK* 0)
 (defconstant *WHITE* 1)
 
-;; TO DO: Remove setfs -> not functional
-;; TO DO: Refactor entirely the commands function -> is a bottleneck, and its iterative
-;; TO DO: Make draw recursive, instead of iterative -> kinda more functional
+;; TO DO: Make draw call a macro like apply-rules that calls every function in the function-array
+
+(defun flatten (tree)
+  (loop for e in tree
+        nconc
+        (if (consp e)
+            (copy-list e)
+          (list e))))
+
+(defun -> (old new)
+  #'(lambda (seq)
+    (substitute new old seq)))
+
+(defmacro apply-rules (rules axiom)
+  `(flatten
+    (let ((seq ,axiom))
+         (let* ,(loop for rule in `,rules
+                  collect `(seq (funcall ,rule seq)))
+                seq))))
 
 (defun d2r (degrees) (* pi (/ degrees 180.0)))
 
@@ -48,11 +64,9 @@
   (if (= n 0) (return-from commands command-arr))
   (commands
     (1- n)
-    (loop for item in command-arr append
-      (case item
-        (A '(A RIGHT B F RIGHT))
-        (B '(LEFT F A LEFT B))
-        (otherwise (list item))))))
+    (apply-rules ((-> 'B '(LEFT F A LEFT B))
+                  (-> 'A '(A RIGHT B F RIGHT)))
+                 command-arr)))
 
 (defun initial-matrix (dims init-point)
   (let ((matrix (make-array dims :initial-element *WHITE*)))
