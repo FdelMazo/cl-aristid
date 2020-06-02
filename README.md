@@ -1,5 +1,7 @@
 # cl-aristid
 
+Draw Lindenmayer Systems with Common LISP!
+
 ```
 sudo apt install sbcl
 ```
