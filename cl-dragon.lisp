@@ -62,22 +62,21 @@
     canvas)
 
 (defun draw (canvas command-arr)
-  (let ((dir (magicl:from-list '(0 1) '(2 1) :type '(SINGLE-FLOAT))))
+  (let ((dir (magicl:from-list '(0 1) '(2 1) :type '(SINGLE-FLOAT)))
+    (F (aristid :len 2)))
       (loop for command in command-arr do
         (case command
-          (F  (dotimes (n 2)
-            (setf (canvas-point canvas) (magicl:.+ (canvas-point canvas) (canvas-dir canvas)))
-            (draw-point canvas)))
+          (G (setf canvas (funcall F canvas)))
           (RIGHT  (setf (canvas-dir canvas) (turn-angle (canvas-dir canvas) 90)))
           (LEFT   (setf (canvas-dir canvas) (turn-angle (canvas-dir canvas) -90)))
           (otherwise t)))))
 
-(defun commands (n &optional (command-arr '(F A)))
+(defun commands (n &optional (command-arr '(G A)))
   (if (= n 0) (return-from commands command-arr))
   (commands
     (1- n)
-    (apply-rules ((-> 'B '(LEFT F A LEFT B))
-                  (-> 'A '(A RIGHT B F RIGHT)))
+    (apply-rules ((-> 'B '(LEFT G A LEFT B))
+                  (-> 'A '(A RIGHT B G RIGHT)))
                  command-arr)))
 
 
@@ -96,3 +95,12 @@
  (netpbm:write-to-file
     (format nil "dragon_~3,'0d.pbm" n)
     (dragon dims init-point n) :format :pbm :encoding :binary :if-exists :supersede))
+
+
+(defun aristid (&key (angle 0) (len 0) (draw t))
+  #'(lambda (canvas)
+      (dotimes (n len)
+        (setf (canvas-point canvas) (magicl:.+ (canvas-point canvas) (canvas-dir canvas)))
+        (if (eq draw t)
+          (draw-point canvas)))
+      canvas))
