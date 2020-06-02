@@ -1,5 +1,5 @@
 #!/usr/bin/sbcl --script
-(load "~/quicklisp/setup.lisp")
+(load "~/.sbclrc")
 (pushnew (truename ".") asdf:*central-registry*)
 (ql:quickload "cl-aristid")
 
