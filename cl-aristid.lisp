@@ -1,6 +1,4 @@
-;;;; cl-dragon.lisp
-
-(in-package #:cl-dragon)
+(in-package #:cl-aristid)
 
 (defconstant *BLACK* 0)
 (defconstant *WHITE* 1)

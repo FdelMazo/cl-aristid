@@ -1,4 +1,4 @@
-# cl-dragon
+# cl-aristid
 
 ```
 sudo apt install sbcl
@@ -15,7 +15,7 @@ sbcl --load quicklisp.lisp
 ```
 sbcl
 * (pushnew (truename ".") asdf:*central-registry*)
-* (ql:quickload "cl-dragon")
+* (ql:quickload "cl-aristid")
 
-* (cl-dragon:dragon 3)
+* (cl-aristid:dragon 3)
 ```

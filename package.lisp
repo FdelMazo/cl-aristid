@@ -1,5 +1,5 @@
 ;;;; package.lisp
 
-(defpackage #:cl-dragon
+(defpackage #:cl-aristid
   (:use #:cl)
   (:export :draw-dragon))
