@@ -1,5 +1,3 @@
-#!/usr/bin/sbcl --script
-(load "~/.sbclrc")
 (pushnew (truename ".") asdf:*central-registry*)
 (ql:quickload "cl-aristid")
 
@@ -116,3 +114,5 @@
 (defparameter canvas (cl-aristid:make-canvas '(670 500) '(175 380)))
 
 (cl-aristid:draw fractal canvas 10)
+
+(quit)

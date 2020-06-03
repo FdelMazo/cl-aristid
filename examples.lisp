@@ -1,5 +1,3 @@
-#!/usr/bin/sbcl --script
-(load "~/.sbclrc")
 (pushnew (truename ".") asdf:*central-registry*)
 (ql:quickload "cl-aristid")
 
@@ -26,7 +24,7 @@
 
 ;;; We draw the fractal
 (cl-aristid:draw fractal canvas 10)
-
+(quit)
 
 
 ;;; We do it again with a new fractal
@@ -50,7 +48,6 @@
 
 ;;; We set up the canvas
 (defparameter triangle-canvas (cl-aristid:make-canvas '(300 350) '(280 10)))
-
 
 ;;; We draw the fractal
 (cl-aristid:draw triangle-fractal triangle-canvas 5)
