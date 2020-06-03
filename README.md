@@ -2,6 +2,8 @@
 
 Draw Lindenmayer Systems with Common LISP!
 
+![](examples/crystal_005.pbm)
+
 ```
 sudo apt install sbcl
 ```
