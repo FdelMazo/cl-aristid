@@ -53,7 +53,7 @@
 
 (defun apply-commands (canvas command-arr)
     (loop :for c :in command-arr :with seq := canvas
-        :do (setq seq (funcall c seq))
+        :do (if (fboundp c) (setq seq (funcall c seq)))
         :finally (return seq)))
 
 (defun draw (fractal canvas gen)

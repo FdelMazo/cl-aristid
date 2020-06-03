@@ -8,8 +8,6 @@
 (defun F (canvas) (funcall (cl-aristid:aristid :len 2) canvas))
 (defun LEFT (canvas) (funcall (cl-aristid:aristid :angle 90) canvas))
 (defun RIGHT (canvas) (funcall (cl-aristid:aristid :angle -90) canvas))
-(defun A (canvas) (funcall (cl-aristid:aristid :nodraw t) canvas))
-(defun B (canvas) (funcall (cl-aristid:aristid :nodraw t) canvas))
 
 ;; We set up the production rules
 (defparameter dragon-rule-1 (cl-aristid:-> 'A '(A RIGHT B F RIGHT)))
