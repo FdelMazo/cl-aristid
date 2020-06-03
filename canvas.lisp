@@ -8,7 +8,7 @@
   corners) ;left top right bottom
 
 (defun make-canvas ()
-  (let ((matrix (cl-svg:make-svg-symbol
+  (let ((matrix (cl-svg:make-group
                   (cl-svg:make-svg-toplevel 'cl-svg:svg-1.1-toplevel)
                   (:id "fractal")))
         (init-point (list 5000 5000)))
@@ -62,5 +62,4 @@
                   :height 10000 :width 10000
                   :view-box (format nil "~d ~d ~d ~d" x y w h)))
     (cl-svg:add-element svg (canvas-matrix canvas))
-    (cl-svg:add-element svg "<use xlink:href='#fractal' />")
     svg))

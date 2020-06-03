@@ -4,7 +4,7 @@
 <svg viewBox="4750 5000 250 250" width="10000" height="10000" version="1.1"
     id="toplevel" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
-  <symbol id="fractal">
+  <g id="fractal">
     <line x1="5000" y1="5000" x2="5000" y2="5000" stroke="black"/>
     <line x1="5000" y1="5000" x2="5000.00" y2="5001.00" stroke="black"/>
     <line x1="5000.00" y1="5001.00" x2="5000.00" y2="5002.00" stroke="black"/>
@@ -31256,6 +31256,5 @@
     <line x1="4753.00" y1="5000.00" x2="4752.00" y2="5000.00" stroke="black"/>
     <line x1="4752.00" y1="5000.00" x2="4751.00" y2="5000.00" stroke="black"/>
     <line x1="4751.00" y1="5000.00" x2="4750.00" y2="5000.00" stroke="black"/>
-  </symbol>
-  <use xlink:href='#fractal' />
+  </g>
 </svg>
