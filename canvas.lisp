@@ -11,10 +11,10 @@
   (let ((matrix (cl-svg:make-svg-symbol
                   (cl-svg:make-svg-toplevel 'cl-svg:svg-1.1-toplevel)
                   (:id "fractal")))
-        (init-point '(5000 5000)))
-    (draw-point (%make-canvas :matrix matrix :dir '(0 1)
+        (init-point (list 5000 5000)))
+    (draw-point (%make-canvas :matrix matrix :dir (list 0 1)
                               :point init-point :prev-point init-point
-                              :corners '(5000 5000 5000 5000)))))
+                              :corners (list 5000 5000 5000 5000)))))
 
 (defun draw-point (canvas &optional (color "black"))
   (cl-svg:draw (canvas-matrix canvas)

@@ -20,7 +20,7 @@
 										:axiom dragon-axiom))
 
 ;;; We draw the fractal
-(cl-aristid:draw fractal 3)
+(cl-aristid:draw fractal 10)
 
 ;;; We do it again with a new fractal
 
