@@ -5,7 +5,6 @@
   axiom
   rules)
 
-(defun draw-fractal (fractal canvas gen)
+(defun draw-fractal (fractal gen)
   (let ((command-arr (commands gen (fractal-axiom fractal) (fractal-rules fractal))))
-	(apply-commands canvas command-arr)
-    (canvas-matrix canvas)))
+    (create-svg (apply-commands (make-canvas) command-arr))))

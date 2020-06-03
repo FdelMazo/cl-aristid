@@ -10,14 +10,18 @@
           (substitute new old seq)
           seq)))
 
-(defun aristid (&key (angle 0) (len 0) (nodraw nil))
+(defun aristid (&key (angle 0) (len 0) (nodraw nil) (color "black"))
   #'(lambda (canvas)
       (dotimes (n len)
         (setf canvas (canvas-move canvas))
         (if (null nodraw)
-          (draw-point canvas)))
+          (draw-point canvas color)))
       (setf canvas (turn-angle canvas angle))
       canvas))
+
+(defmacro defaristid (name &rest body)
+  `(defun ,name (canvas)
+    (funcall (aristid ,@body) canvas)))
 
 (defun flatten (tree)
   (loop for e in tree
@@ -44,6 +48,7 @@
         :do (if (fboundp c) (setq seq (funcall c seq)))
         :finally (return seq)))
 
-(defun draw (fractal canvas gen)
-  (with-open-file (s (format nil "~A_~3,'0d.svg" (fractal-name fractal) gen) :direction :output :if-exists :supersede)
-    (cl-svg:stream-out s (draw-fractal fractal canvas gen))))
+(defun draw (fractal gen)
+  (with-open-file (s (format nil "~A_~3,'0d.svg" (fractal-name fractal) gen)
+                  :direction :output :if-exists :supersede)
+    (cl-svg:stream-out s (draw-fractal fractal gen))))

@@ -1,3 +1,3 @@
 (defpackage #:cl-aristid
   (:use #:cl)
-  (:export :draw :make-fractal :make-canvas :aristid :->))
+  (:export :draw :make-fractal :defaristid :->))

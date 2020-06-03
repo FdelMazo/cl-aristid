@@ -1,6 +1,0 @@
-
-
-; (let  ((dir (make-array '(3 3) :initial-element 1))
-;     ; (dirnew (make-array '(6 6) :initial-element 0))
-;     )
-;   (print (adjust-array dir '(4 4) :fill-pointer 1)))
