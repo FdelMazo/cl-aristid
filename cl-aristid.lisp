@@ -16,7 +16,7 @@
         (setf canvas (canvas-move canvas))
         (if (null nodraw)
           (draw-point canvas)))
-      (setf (canvas-dir canvas) (turn-angle (canvas-dir canvas) angle))
+      (setf canvas (turn-angle canvas angle))
       canvas))
 
 (defun flatten (tree)
@@ -38,20 +38,6 @@
     (1- n)
     (string-rewrite str rules)
     rules))
-
-(defun d2r (degrees) (* pi (/ degrees 180.0)))
-
-(defun rotation-matrix (angle)
-  (magicl:from-list
-    (list
-      (cos (d2r angle))
-      (- (sin (d2r angle)))
-      (sin (d2r angle))
-      (cos (d2r angle)))
-    '(2 2) :type '(SINGLE-FLOAT)))
-
-(defun turn-angle (dir angle)
-  (magicl:@ (rotation-matrix angle) dir))
 
 (defun apply-commands (canvas command-arr)
     (loop :for c :in command-arr :with seq := canvas
