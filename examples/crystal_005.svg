@@ -1,10 +1,9 @@
 <?xml version="1.0" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg viewBox="4773 4920 486 646" width="10000" height="10000" version="1.1"
     id="toplevel" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
-  <symbol id="fractal">
     <line x1="4773.44" y1="5080.00" x2="4773.44" y2="5080.00" stroke="black"/>
     <line x1="4773.44" y1="5080.00" x2="4773.44" y2="5081.00" stroke="black"/>
     <line x1="4773.44" y1="5081.00" x2="4773.44" y2="5082.00" stroke="black"/>
@@ -25006,6 +25005,4 @@
     <line x1="4775.44" y1="5081.00" x2="4775.44" y2="5080.00" stroke="black"/>
     <line x1="4775.44" y1="5080.00" x2="4774.44" y2="5080.00" stroke="black"/>
     <line x1="4774.44" y1="5080.00" x2="4773.44" y2="5080.00" stroke="black"/>
-  </symbol>
-  <use xlink:href='#fractal' />
 </svg>
