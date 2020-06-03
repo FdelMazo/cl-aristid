@@ -2,10 +2,13 @@
 
 (defconstant *BLACK* 0)
 (defconstant *WHITE* 1)
+(setf *random-state* (make-random-state t))
 
-(defun -> (old new)
+(defun -> (old new &key (prob 1.00))
   #'(lambda (seq)
-    (substitute new old seq)))
+      (if (<= (random 1.00) prob)
+          (substitute new old seq)
+          seq)))
 
 (defun aristid (&key (angle 0) (len 0) (nodraw nil))
   #'(lambda (canvas)

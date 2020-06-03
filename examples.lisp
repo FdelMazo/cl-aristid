@@ -24,10 +24,10 @@
 
 ;;; We draw the fractal
 (cl-aristid:draw fractal canvas 10)
-(quit)
-
 
 ;;; We do it again with a new fractal
+
+
 ;; We add or modify the aristids
 (defun A (canvas) (funcall (cl-aristid:aristid :len 10) canvas))
 (defun B (canvas) (funcall (cl-aristid:aristid :len 10) canvas))
@@ -51,3 +51,5 @@
 
 ;;; We draw the fractal
 (cl-aristid:draw triangle-fractal triangle-canvas 5)
+
+(quit)
