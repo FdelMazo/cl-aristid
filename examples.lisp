@@ -20,7 +20,7 @@
 										:axiom dragon-axiom))
 
 ;;; We set up the canvas
-(defparameter canvas (cl-aristid:make-canvas '(100 100) '(25 25)))
+(defparameter canvas (cl-aristid:make-canvas))
 
 ;;; We draw the fractal
 (cl-aristid:draw fractal canvas 10)
@@ -29,8 +29,8 @@
 
 
 ;; We add or modify the aristids
-(defun A (canvas) (funcall (cl-aristid:aristid :len 10) canvas))
-(defun B (canvas) (funcall (cl-aristid:aristid :len 10) canvas))
+(defun A (canvas) (funcall (cl-aristid:aristid :len 5) canvas))
+(defun B (canvas) (funcall (cl-aristid:aristid :len 5) canvas))
 (defun LEFT (canvas) (funcall (cl-aristid:aristid :angle 120) canvas))
 (defun RIGHT (canvas) (funcall (cl-aristid:aristid :angle -120) canvas))
 
@@ -47,7 +47,7 @@
 										:axiom triangle-axiom))
 
 ;;; We set up the canvas
-(defparameter triangle-canvas (cl-aristid:make-canvas '(300 350) '(280 10)))
+(defparameter triangle-canvas (cl-aristid:make-canvas))
 
 ;;; We draw the fractal
 (cl-aristid:draw triangle-fractal triangle-canvas 5)

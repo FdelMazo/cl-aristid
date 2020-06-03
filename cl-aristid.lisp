@@ -13,8 +13,7 @@
 (defun aristid (&key (angle 0) (len 0) (nodraw nil))
   #'(lambda (canvas)
       (dotimes (n len)
-        (setf (canvas-point canvas)
-              (magicl:.+ (canvas-point canvas) (canvas-dir canvas)))
+        (setf canvas (canvas-move canvas))
         (if (null nodraw)
           (draw-point canvas)))
       (setf (canvas-dir canvas) (turn-angle (canvas-dir canvas) angle))
@@ -60,7 +59,5 @@
         :finally (return seq)))
 
 (defun draw (fractal canvas gen)
- (netpbm:write-to-file
-    (format nil "~A_~3,'0d.pbm" (fractal-name fractal) gen)
-    (draw-fractal fractal canvas gen)
-    :format :pbm :encoding :ascii :if-exists :supersede))
+  (with-open-file (s (format nil "~A_~3,'0d.svg" (fractal-name fractal) gen) :direction :output :if-exists :supersede)
+    (cl-svg:stream-out s (draw-fractal fractal canvas gen))))

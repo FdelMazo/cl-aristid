@@ -5,7 +5,7 @@ Draw Lindenmayer Systems with Common LISP!
 ![](examples/crystal_005.png)
 
 ```
-sudo apt install sbcl
+sudo apt install sbcl imagemagick
 ```
 
 ```

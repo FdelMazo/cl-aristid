@@ -4,7 +4,7 @@
   :license  "MIT"
   :version "0.0.1"
   :serial t
-  :depends-on (#:cl-netpbm #:magicl)
+  :depends-on (#:cl-netpbm #:magicl #:cl-svg)
   :components ((:file "package")
                (:file "cl-aristid")
                (:file "canvas")

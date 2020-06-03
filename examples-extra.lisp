@@ -14,15 +14,15 @@
 										:rules (list rule-1)
 										:axiom axiom))
 
-(defparameter canvas (cl-aristid:make-canvas '(200 100) '(15 85)))
+(defparameter canvas (cl-aristid:make-canvas))
 
 (cl-aristid:draw fractal canvas 4)
 
 
 
 ;;; Sierpinski arrowhead curve
-(defun A (canvas) (funcall (cl-aristid:aristid :len 10) canvas))
-(defun B (canvas) (funcall (cl-aristid:aristid :len 10) canvas))
+(defun A (canvas) (funcall (cl-aristid:aristid :len 5) canvas))
+(defun B (canvas) (funcall (cl-aristid:aristid :len 5) canvas))
 (defun LEFT (canvas) (funcall (cl-aristid:aristid :angle 60) canvas))
 (defun RIGHT (canvas) (funcall (cl-aristid:aristid :angle -60) canvas))
 
@@ -35,7 +35,7 @@
 										:rules (list rule-1 rule-2)
 										:axiom axiom))
 
-(defparameter canvas (cl-aristid:make-canvas '(300 350) '(280 10)))
+(defparameter canvas (cl-aristid:make-canvas))
 
 (cl-aristid:draw fractal canvas 5)
 
@@ -55,7 +55,7 @@
 										:rules (list rule-1 rule-2)
 										:axiom axiom))
 
-(defparameter canvas (cl-aristid:make-canvas '(300 300) '(270 20)))
+(defparameter canvas (cl-aristid:make-canvas))
 
 (cl-aristid:draw fractal canvas 3)
 
@@ -73,14 +73,14 @@
 										:rules (list rule-1)
 										:axiom axiom))
 
-(defparameter canvas (cl-aristid:make-canvas '(530 530) '(20 20)))
+(defparameter canvas (cl-aristid:make-canvas))
 
 (cl-aristid:draw fractal canvas 5)
 
 
 
 ;;; Von Koch Snowflake
-(defun F (canvas) (funcall (cl-aristid:aristid :len 20) canvas))
+(defun F (canvas) (funcall (cl-aristid:aristid :len 5) canvas))
 (defun RIGHT (canvas) (funcall (cl-aristid:aristid :angle 60) canvas))
 (defun LEFT (canvas) (funcall (cl-aristid:aristid :angle -60) canvas))
 
@@ -92,7 +92,7 @@
 										:rules (list rule-1)
 										:axiom axiom))
 
-(defparameter canvas (cl-aristid:make-canvas '(650 600) '(20 295)))
+(defparameter canvas (cl-aristid:make-canvas))
 
 (cl-aristid:draw fractal canvas 3)
 
@@ -111,7 +111,7 @@
 										:rules (list rule-1)
 										:axiom axiom))
 
-(defparameter canvas (cl-aristid:make-canvas '(670 500) '(175 380)))
+(defparameter canvas (cl-aristid:make-canvas))
 
 (cl-aristid:draw fractal canvas 10)
 
