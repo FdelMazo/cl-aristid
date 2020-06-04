@@ -59,7 +59,7 @@
                                    (second (canvas-corners canvas)))))
     (setq svg (cl-svg:make-svg-toplevel
                   'cl-svg:svg-1.1-toplevel
-                  :height 10000 :width 10000
+                  :width (* 100 w) :height (* 100 h)
                   :view-box (format nil "~d ~d ~d ~d" x y w h)))
     (cl-svg:add-element svg (canvas-matrix canvas))
     svg))
