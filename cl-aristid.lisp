@@ -1,7 +1,5 @@
 (in-package #:cl-aristid)
 
-(defconstant *BLACK* 0)
-(defconstant *WHITE* 1)
 (setf *random-state* (make-random-state t))
 
 (defun -> (old new &key (prob 1.00))
