@@ -19,6 +19,14 @@
       (setf canvas (turn-angle canvas angle))
       canvas))
 
+(defun [ (canvas)
+  (setf canvas (push-stack canvas))
+  canvas)
+
+(defun ] (canvas)
+  (setf canvas (pop-stack canvas))
+  canvas)
+
 (defmacro defaristid (name &rest body)
   `(defun ,name (canvas)
     (funcall (aristid ,@body) canvas)))

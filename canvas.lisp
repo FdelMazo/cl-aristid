@@ -5,7 +5,8 @@
   dir
   point
   prev-point
-  corners) ;left top right bottom
+  corners ;left top right bottom
+  stack)
 
 (defun make-canvas ()
   (let ((matrix (cl-svg:make-group
@@ -14,7 +15,8 @@
         (init-point (list 5000 5000)))
     (draw-point (%make-canvas :matrix matrix :dir (list 0 1)
                               :point init-point :prev-point init-point
-                              :corners (list 5000 5000 5000 5000)))))
+                              :corners (list 5000 5000 5000 5000)
+                              :stack (list)))))
 
 (defun draw-point (canvas &optional (color "black"))
   (cl-svg:draw (canvas-matrix canvas)
@@ -63,3 +65,19 @@
                   :view-box (format nil "~d ~d ~d ~d" x y w h)))
     (cl-svg:add-element svg (canvas-matrix canvas))
     svg))
+
+(defun push-stack (canvas)
+  (setf (canvas-stack canvas)
+        (append
+          (list (list (copy-list (canvas-point canvas))
+                (copy-list (canvas-prev-point canvas))
+                (copy-list (canvas-dir canvas))))
+          (canvas-stack canvas)))
+  canvas)
+
+(defun pop-stack (canvas)
+  (let ((tuple (pop (canvas-stack canvas))))
+    (setf (canvas-point canvas) (first tuple))
+    (setf (canvas-prev-point canvas) (second tuple))
+    (setf (canvas-dir canvas) (third tuple)))
+  canvas)
