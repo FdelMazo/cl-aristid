@@ -117,4 +117,24 @@
 
 (draw fractal 4)
 
+;; Stochastic Fractal plant
+
+(defaristid F :len 4 :color "white")
+(defaristid G :len 4 :color "salmon")
+(defaristid LEFT :angle 25)
+(defaristid RIGHT :angle -25)
+
+(defparameter freaky-fractal-rules
+	(list (defrule F -> (F G) :prob 0.45)
+		  (defrule G -> (F F) )
+		  (defrule X -> (F RIGHT [ [ X ] LEFT X ] LEFT F [ LEFT F X ] RIGHT X))))
+
+(defparameter axiom '(LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT X))
+
+(defparameter fractal (make-fractal :name "freaky-fractal-plant"
+										:rules freaky-fractal-rules
+										:axiom axiom))
+
+(draw fractal 6)
+
 (quit)

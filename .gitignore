@@ -1,3 +1,4 @@
 *.svg
 !examples/*.svg
+examples/freaky-fractal-plant_006.svg
 system-index.txt
