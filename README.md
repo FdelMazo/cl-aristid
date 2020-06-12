@@ -4,15 +4,15 @@ Draw Lindenmayer Systems with Common LISP!
 
 <img src="./examples/crystal_005.svg" width="400">
 
-- 1. [Introduction](#Introduction)
-- 2. [Example](#Example)
-- 3. [Interface](#Interface)
-- 4. [Cool stuff](#Coolstuff)
-     _ 4.1. [Brackets](#Brackets)
-     _ 4.2. [Stochastic L-systems](#StochasticL-systems)
-     _ 4.3. [Colors](#Colors)
-     _ 4.4. [Everything together](#Everythingtogether)
-- 5. [Getting started with Common LISP](#GettingstartedwithCommonLISP)
+- [Introduction](#Introduction)
+- [Example](#Example)
+- [Interface](#Interface)
+- [Cool stuff](#Coolstuff)
+  - [Brackets](#Brackets)
+  - [Stochastic L-systems](#StochasticL-systems)
+  - [Colors](#Colors)
+  - [Everything together](#Everythingtogether)
+- [Getting started with Common LISP](#GettingstartedwithCommonLISP)
 
 ## 1. <a name='Introduction'></a>Introduction
 
