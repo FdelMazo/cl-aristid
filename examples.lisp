@@ -52,7 +52,7 @@
 ;;; Now we'll try using brackets!
 
 ;; We add or modify the aristids
-(defaristid A :len 8 :color "white")
+(defaristid A :len 8 :color "purple")
 (defaristid B :len 8 :color "white")
 (defaristid LEFT :angle 45)
 (defaristid RIGHT :angle -45)
