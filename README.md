@@ -2,7 +2,7 @@
 
 Draw Lindenmayer Systems with Common LISP!
 
-![](examples/crystal_005.svg)
+<img src="./examples/crystal_005.svg" width="400">
 
 - [Introduction](#Introduction)
 - [Example](#Example)
@@ -73,7 +73,7 @@ We are now ready to draw! We just call the `draw` function that receives our fra
 
 7. Result
 
-![](examples/dragon_010.svg)
+<img src="./examples/dragon_010.svg" width="300">
 
 ## 3. <a name='Interface'></a>Interface
 
