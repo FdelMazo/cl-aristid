@@ -2,14 +2,14 @@
 
 (setf *random-state* (make-random-state t))
 
-(defun -> (old new &key (prob 1.00))
+(defun -> (old new &optional prob)
   #'(lambda (seq)
       (if (<= (random 1.00) prob)
           (substitute new old seq)
           seq)))
 
-(defmacro defrule (sym -> &rest replace )
-  `(-> ',sym ',@replace))
+(defmacro defrule (sym -> replace &key (prob 1.00))
+  `(-> ',sym ',replace ,prob))
 
 (defun aristid (&key (angle 0) (len 0) (nodraw nil) (color "black"))
   #'(lambda (canvas)
