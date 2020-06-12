@@ -9,15 +9,16 @@
 (defaristid RIGHT :angle -90)
 
 ;; We set up the production rules
-(defparameter dragon-rule-1 (-> 'A '(A RIGHT B F RIGHT)))
-(defparameter dragon-rule-2 (-> 'B '(LEFT F A LEFT B)))
+(defparameter dragon-rules
+	(list (defrule A -> (A RIGHT B F RIGHT))
+		  (defrule B -> (LEFT F A LEFT B))))
 
 ;; We set up the fractal axiom
 (defparameter dragon-axiom '(F A))
 
 ;; We create the fractal
 (defparameter fractal (make-fractal :name "dragon"
-										:rules (list dragon-rule-1 dragon-rule-2)
+										:rules dragon-rules
 										:axiom dragon-axiom))
 
 ;;; We draw the fractal
@@ -32,20 +33,20 @@
 (defaristid RIGHT :angle -120)
 
 ;; We set up the production rules
-(defparameter triangle-rule-1 (-> 'A '(A LEFT B RIGHT A RIGHT B LEFT A)))
-(defparameter triangle-rule-2 (-> 'B '(B B)))
+(defparameter triangle-rules
+	(list (defrule A -> (A LEFT B RIGHT A RIGHT B LEFT A))
+		  (defrule B -> (B B))))
 
 ;; We set up the new axiom
 (defparameter triangle-axiom '(A LEFT B LEFT B))
 
 ;; We create the fractal
 (defparameter triangle-fractal (make-fractal :name "triangle"
-										:rules (list triangle-rule-1 triangle-rule-2)
+										:rules triangle-rules
 										:axiom triangle-axiom))
 
 ;;; We draw the fractal
 (draw triangle-fractal 5)
-
 
 
 ;;; Now we'll try using brackets!
@@ -57,8 +58,8 @@
 (defaristid RIGHT :angle -45)
 
 ;; We set up the production rules, which include the push and pop aristids
-(defparameter tree-rule-1 (-> 'A '(B [ RIGHT A ] LEFT A)))
-(defparameter tree-rule-2 (-> 'B '(B B)))
+(defparameter tree-rule-1 (defrule A -> (B [ RIGHT A ] LEFT A)))
+(defparameter tree-rule-2 (defrule B -> (B B)))
 
 ;; We set up the new axiom
 (defparameter tree-axiom '(LEFT LEFT LEFT LEFT A))

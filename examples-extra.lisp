@@ -7,7 +7,7 @@
 (defaristid LEFT :angle 90)
 (defaristid RIGHT :angle -90)
 
-(defparameter rule-1 (-> 'F '(F RIGHT F LEFT F LEFT F RIGHT F)))
+(defparameter rule-1 (defrule F -> (F RIGHT F LEFT F LEFT F RIGHT F)))
 
 (defparameter axiom '(RIGHT F))
 
@@ -24,8 +24,8 @@
 (defaristid LEFT :angle 60)
 (defaristid RIGHT :angle -60)
 
-(defparameter rule-1 (-> 'A '(B LEFT A LEFT B)))
-(defparameter rule-2 (-> 'B '(A RIGHT B RIGHT A)))
+(defparameter rule-1 (defrule A -> (B LEFT A LEFT B)))
+(defparameter rule-2 (defrule B -> (A RIGHT B RIGHT A)))
 
 (defparameter axiom '(A))
 
@@ -41,8 +41,8 @@
 (defaristid LEFT :angle 90)
 (defaristid RIGHT :angle -90)
 
-(defparameter rule-1 (-> 'X '(X F X LEFT Y F LEFT Y F RIGHT F X RIGHT F X LEFT Y F LEFT Y F F X RIGHT Y F RIGHT F X F X Y F LEFT F X RIGHT Y F RIGHT F X F X RIGHT Y F LEFT F X Y F LEFT Y F LEFT F X RIGHT F X RIGHT Y F Y F LEFT)))
-(defparameter rule-2 (-> 'Y '(RIGHT F X F X LEFT Y F LEFT Y F RIGHT F X RIGHT F X Y F RIGHT F X LEFT Y F Y F LEFT F X LEFT Y F RIGHT F X Y F Y F LEFT F X LEFT Y F F X RIGHT F X RIGHT Y F LEFT Y F LEFT F X RIGHT F X RIGHT Y F Y)))
+(defparameter rule-1 (defrule X -> (X F X LEFT Y F LEFT Y F RIGHT F X RIGHT F X LEFT Y F LEFT Y F F X RIGHT Y F RIGHT F X F X Y F LEFT F X RIGHT Y F RIGHT F X F X RIGHT Y F LEFT F X Y F LEFT Y F LEFT F X RIGHT F X RIGHT Y F Y F LEFT)))
+(defparameter rule-2 (defrule Y -> (RIGHT F X F X LEFT Y F LEFT Y F RIGHT F X RIGHT F X Y F RIGHT F X LEFT Y F Y F LEFT F X LEFT Y F RIGHT F X Y F Y F LEFT F X LEFT Y F F X RIGHT F X RIGHT Y F LEFT Y F LEFT F X RIGHT F X RIGHT Y F Y)))
 
 (defparameter axiom '(LEFT Y F))
 
@@ -57,7 +57,7 @@
 (defaristid F :len 2)
 (defaristid RIGHT :angle -90)
 
-(defparameter rule-1 (-> 'F '(F F RIGHT F RIGHT RIGHT F RIGHT F)))
+(defparameter rule-1 (defrule F -> (F F RIGHT F RIGHT RIGHT F RIGHT F)))
 
 (defparameter axiom '(F RIGHT F RIGHT F RIGHT F))
 
@@ -73,7 +73,7 @@
 (defaristid LEFT :angle 60)
 (defaristid RIGHT :angle -60)
 
-(defparameter rule-1 (-> 'F '(F LEFT F RIGHT RIGHT F LEFT F)))
+(defparameter rule-1 (defrule F -> (F LEFT F RIGHT RIGHT F LEFT F)))
 
 (defparameter axiom '(LEFT LEFT F RIGHT RIGHT F RIGHT RIGHT F))
 
@@ -89,7 +89,7 @@
 (defaristid LEFT :angle 45)
 (defaristid RIGHT :angle -45)
 
-(defparameter rule-1 (-> 'F '(LEFT F RIGHT RIGHT F LEFT)))
+(defparameter rule-1 (defrule F -> (LEFT F RIGHT RIGHT F LEFT)))
 
 (defparameter axiom '(LEFT LEFT F))
 
@@ -106,8 +106,8 @@
 (defaristid LEFT :angle 25)
 (defaristid RIGHT :angle -25)
 
-(defparameter rule-1 (-> 'F '(F F)))
-(defparameter rule-2 (-> 'X '(F RIGHT [ [ X ] LEFT X ] LEFT F [ LEFT F X ] RIGHT X)))
+(defparameter rule-1 (defrule F -> (F F)))
+(defparameter rule-2 (defrule X -> (F RIGHT [ [ X ] LEFT X ] LEFT F [ LEFT F X ] RIGHT X)))
 
 (defparameter axiom '(LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT X))
 

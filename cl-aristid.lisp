@@ -8,6 +8,9 @@
           (substitute new old seq)
           seq)))
 
+(defmacro defrule (sym -> &rest replace )
+  `(-> ',sym ',@replace))
+
 (defun aristid (&key (angle 0) (len 0) (nodraw nil) (color "black"))
   #'(lambda (canvas)
       (dotimes (n len)
