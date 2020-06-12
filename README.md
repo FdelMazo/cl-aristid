@@ -144,7 +144,7 @@ The aristids you define have a `color` argument which can be set to any of the [
 
 ### Everything together
 
-So I hear you want a fractal plant which has some branches longer than the other ones, some in white and some in salmon? Hold my parenthesis!
+So I hear you want a fractal plant which has some branches in white and some in salmon? Hold my parenthesis!
 
 ```lisp
 (defaristid F :len 4 :color "white")
@@ -162,6 +162,8 @@ So I hear you want a fractal plant which has some branches longer than the other
 (defparameter fractal (make-fractal :name "freaky-fractal-plant"
 										:rules freaky-fractal-rules
 										:axiom axiom))
+
+(draw tree-fractal 6)
 ```
 
 <img src="./examples/freaky-fractal-plant_006.svg" width="400">
