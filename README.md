@@ -12,7 +12,7 @@ Draw Lindenmayer Systems with Common LISP!
      _ 4.2. [Stochastic L-systems](#StochasticL-systems)
      _ 4.3. [Colors](#Colors)
      _ 4.4. [Everything together](#Everythingtogether)
-- 5. [Getting started with Common LISP]
+- 5. [Getting started with Common LISP](#GettingstartedwithCommonLISP)
 
 ## 1. <a name='Introduction'></a>Introduction
 
