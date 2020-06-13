@@ -87,7 +87,7 @@ We want to call `make-fractal` with all of this attributes.
 We are now ready to draw! We just call the `draw` function that receives our fractal and the N iterations we want
 
 ```lisp
-(draw fractal 10)
+(draw dragon 10)
 ```
 
 7. Result
