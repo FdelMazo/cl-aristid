@@ -36,7 +36,7 @@ You can read the [examples.lisp](examples.lisp) file to see the code for several
 
 Drawing the Dragon Curve with `cl-aristid`
 
-1. First, we want to enter SBCL (just write `sbcl` in the terminal) and load this system
+1. First, we want to enter SBCL (just write `sbcl` in the terminal, inside the root of the repository) and load this system
 
 ```lisp
 (pushnew (truename ".") asdf:*central-registry*)
@@ -185,8 +185,8 @@ sudo apt install sbcl
 curl -O https://beta.quicklisp.org/quicklisp.lisp
 sbcl --load quicklisp.lisp
 
-- (quicklisp-quickstart:install)
-- (ql:add-to-init-file)
+* (quicklisp-quickstart:install)
+* (ql:add-to-init-file)
 
 ```
 
@@ -196,8 +196,8 @@ sbcl --load quicklisp.lisp
 
 sbcl
 
-- (pushnew (truename ".") asdf:_central-registry_)
-- (ql:quickload "cl-aristid")
+* (pushnew (truename ".") asdf:*central-registry*)
+* (ql:quickload "cl-aristid")
 
 ```
 
