@@ -9,7 +9,7 @@ Draw Lindenmayer Systems with Common LISP!
 - [Interface](#Interface)
 - [Cool stuff](#Coolstuff)
   - [Brackets](#Brackets)
-  - [Stochastic L-systems](#StochasticL-systems)
+  - [Stochastic L-systems](#StochasticLSystems)
   - [Colors](#Colors)
   - [Everything together](#Everythingtogether)
 - [Getting started with Common LISP](#GettingstartedwithCommonLISP)
@@ -130,19 +130,19 @@ The function `draw` takes a `fractal` structure and draws it's `gen` iteration, 
 
 ## 4. <a name='Coolstuff'></a>Cool stuff
 
-### Brackets
+### <a name='Brackets'></a>Brackets
 
 The bracket symbols (`[` and `]`) are symbols defined by Lindenmayer to save and restore the current direction of the l-system, so that when enclosing a list of symbols between brackets, a new "branch" starts to be drawn. [One fractal plant](https://en.wikipedia.org/wiki/L-system#Example_7:_Fractal_plant) has one of its rules as "(X → F+[[X]-X]-F[-FX]+X)". This can be achieved in `cl-aristid` with `(defrule X -> (F RIGHT [ [ X ] LEFT X ] LEFT F [ LEFT F X ] RIGHT X))`
 
-### Stochastic L-systems
+###  <a name='StochasticLsystems'></a>Stochastic L-systems
 
 `cl-aristid` supports stochastic L-systems, which are systems where rules can be chosen with a certain probability on each iteration of the rewrite. So for example, you want to draw a fractal in which one of it's symbols gets replaced by a list of new symbols only a third of the times it is called, you can define that rule with `:prob` such as `(defrule A -> (A RIGHT B F RIGHT) :prob 0.33)`
 
-### Colors
+### <a name='Colors'></a>Colors
 
 The aristids you define have a `color` argument which can be set to any of the [140 HTML](https://htmlcolorcodes.com/color-names/) color names or hex value. For example `(defaristid A :len 8 :color "purple")`
 
-### Everything together
+### <a name='EverythingTogether'></a>Everything together
 
 So I hear you want a fractal plant which has some branches in white and some in salmon? Hold my parenthesis!
 
