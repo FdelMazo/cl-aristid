@@ -1,11 +1,11 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg viewBox="4992 4865 125 135" height="13500" width="12500" version="1.1"
-    id="toplevel" xmlns="http://www.w3.org/2000/svg"
+<svg viewBox="4991.60 4865.23 125.02 134.77" height="13477.05" width="12501.51"
+    version="1.1" id="toplevel" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
-  <g id="fractal">
-    <line x1="5000" y1="5000" x2="5000" y2="5000" stroke="black"/>
+  <g stroke="black">
+    <line x1="5000" y1="5000" x2="5000" y2="5000" stroke=""/>
     <line x1="5000" y1="5000" x2="5000.34" y2="4999.06" stroke="black"/>
     <line x1="5000.34" y1="4999.06" x2="5000.68" y2="4998.12" stroke="black"/>
     <line x1="5000.68" y1="4998.12" x2="5001.03" y2="4997.18" stroke="black"/>
