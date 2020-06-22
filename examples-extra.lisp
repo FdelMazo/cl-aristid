@@ -52,6 +52,21 @@
 
 (draw fractal 3)
 
+;;; Rainbow Quadratic Gosper
+(defaristid F :len 2 :color "rainbow")
+(defaristid LEFT :angle 90)
+(defaristid RIGHT :angle -90)
+
+(defparameter rule-1 (defrule X -> (X F X LEFT Y F LEFT Y F RIGHT F X RIGHT F X LEFT Y F LEFT Y F F X RIGHT Y F RIGHT F X F X Y F LEFT F X RIGHT Y F RIGHT F X F X RIGHT Y F LEFT F X Y F LEFT Y F LEFT F X RIGHT F X RIGHT Y F Y F LEFT)))
+(defparameter rule-2 (defrule Y -> (RIGHT F X F X LEFT Y F LEFT Y F RIGHT F X RIGHT F X Y F RIGHT F X LEFT Y F Y F LEFT F X LEFT Y F RIGHT F X Y F Y F LEFT F X LEFT Y F F X RIGHT F X RIGHT Y F LEFT Y F LEFT F X RIGHT F X RIGHT Y F Y)))
+
+(defparameter axiom '(LEFT Y F))
+
+(defparameter fractal (make-fractal :name "freaky-quadratic"
+										:rules (list rule-1 rule-2)
+										:axiom axiom))
+
+(draw fractal 3)
 
 ;;; Crystal
 (defaristid F :len 2)

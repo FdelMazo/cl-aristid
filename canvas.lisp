@@ -16,8 +16,8 @@
 (defun random-increase (color)
   (if (<= (random 1.00) 0.80)
       (if (<= (random 1.00) 0.50)
-          (if (< color 255) (setq color (+ color 1)))
-          (if (> color 0) (setq color (- color 1)))))
+          (if (< color 245) (setq color (+ color 1)))
+          (if (> color 10) (setq color (- color 1)))))
   color)
 
 (defun get-next-color ()

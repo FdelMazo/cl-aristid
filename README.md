@@ -2,7 +2,7 @@
 
 Draw Lindenmayer Systems with Common LISP!
 
-<img src="./examples/crystal_005.svg" width="400">
+<img src="./examples/logo.svg" width="400">
 
 - [Introduction](#Introduction)
 - [Example](#Example)
@@ -12,6 +12,7 @@ Draw Lindenmayer Systems with Common LISP!
   - [Stochastic L-systems](#StochasticLSystems)
   - [Colors](#Colors)
   - [Everything together](#Everythingtogether)
+  - [Rainbows](#Rainbows)
 - [Getting started with Common LISP](#GettingstartedwithCommonLISP)
 
 ## 1. <a name='Introduction'></a>Introduction
@@ -168,7 +169,13 @@ So I hear you want a fractal plant which has some branches in white and some in 
 (draw tree-fractal 6)
 ```
 
-<img src="./examples/freaky-fractal-plant_006.svg" width="400">
+<img src="./examples/stochastic-fractal-plant_006.svg" width="400">
+
+### <a name='Rainbows'></a>Rainbows
+
+Add `:color "rainbow"` to your aristid to give it more groove
+
+<img src="./examples/rainbow-quadratic_003.svg" width="500">
 
 ## 5. <a name='GettingstartedwithCommonLISP'></a>Getting started with Common LISP
 
