@@ -94,6 +94,10 @@ We are now ready to draw! We just call the `draw` function that receives our fra
 
 <img src="./examples/dragon_010.svg" width="300">
 
+8. Let's pass it through [vivus](https://maxwellito.github.io/vivus-instant/) for one last look
+
+<img src="./examples/dragon_010_animated.svg" width="500">
+
 ## 3. <a name='Interface'></a>Interface
 
 ```lisp
