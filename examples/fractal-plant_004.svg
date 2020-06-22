@@ -5,7 +5,6 @@
     version="1.1" id="toplevel" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
   <g stroke="black">
-    <line x1="5000" y1="5000" x2="5000" y2="5000" stroke=""/>
     <line x1="5000" y1="5000" x2="5000.34" y2="4999.06" stroke="black"/>
     <line x1="5000.34" y1="4999.06" x2="5000.68" y2="4998.12" stroke="black"/>
     <line x1="5000.68" y1="4998.12" x2="5001.03" y2="4997.18" stroke="black"/>
