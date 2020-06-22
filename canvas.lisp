@@ -13,10 +13,10 @@
                   (cl-svg:make-svg-toplevel 'cl-svg:svg-1.1-toplevel)
                   (:stroke "black")))
         (init-point (list 5000 5000)))
-    (draw-point (%make-canvas :matrix matrix :dir (list 0 1)
+    (%make-canvas :matrix matrix :dir (list 0 1)
                               :point init-point :prev-point init-point
                               :corners (list 5000 5000 5000 5000)
-                              :stack (list)))))
+                              :stack (list))))
 
 (defun draw-point (canvas &optional (color ""))
   (cl-svg:draw (canvas-matrix canvas)
@@ -56,6 +56,8 @@
 (defun create-svg (canvas)
   (destructuring-bind (left top right bottom) (canvas-corners canvas)
     (let ((w (- right left)) (h (- bottom top)))
+      (if (zerop w) (setq w 1))
+      (if (zerop h) (setq h 1))
       (cl-svg:make-svg-toplevel
           'cl-svg:svg-1.1-toplevel
           :width (* 100 w) :height (* 100 h)

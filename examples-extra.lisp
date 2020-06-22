@@ -135,6 +135,6 @@
 										:rules freaky-fractal-rules
 										:axiom axiom))
 
-(draw fractal 6)
+(draw fractal 7)
 
 (quit)

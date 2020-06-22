@@ -21,9 +21,9 @@
   (commands (1- n) (string-rewrite str rules)  rules))
 
 (defun apply-commands (canvas command-arr)
-    (loop :for c :in command-arr :with seq := canvas
-        :do (if (fboundp c) (setq seq (funcall c seq)))
-        :finally (return seq)))
+  (loop :for c :in command-arr :with seq := canvas
+      :do (if (fboundp c) (setq seq (funcall c seq)))
+      :finally (return seq)))
 
 (defun draw-fractal (fractal gen)
   (let* ((command-arr (commands gen (fractal-axiom fractal)
