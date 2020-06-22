@@ -8,6 +8,24 @@
   corners ;left top right bottom
   stack)
 
+(setq *random-state* (make-random-state t))
+(setq *random-red* (random 255))
+(setq *random-green* (random 255))
+(setq *random-blue* (random 255))
+
+(defun random-increase (color)
+  (if (<= (random 1.00) 0.80)
+      (if (<= (random 1.00) 0.50)
+          (if (< color 255) (setq color (+ color 1)))
+          (if (> color 0) (setq color (- color 1)))))
+  color)
+
+(defun get-next-color ()
+  (setq *random-red* (random-increase *random-red*))
+  (setq *random-green* (random-increase *random-green*))
+  (setq *random-blue* (random-increase *random-blue*))
+  (format nil "#~2,'0X~2,'0X~2,'0X" *random-red* *random-green* *random-blue*))
+
 (defun make-canvas ()
   (let ((matrix (cl-svg:make-group
                   (cl-svg:make-svg-toplevel 'cl-svg:svg-1.1-toplevel)
@@ -19,6 +37,7 @@
                               :stack (list))))
 
 (defun draw-point (canvas &optional (color ""))
+  (if (string= color "rainbow") (setq color (get-next-color)))
   (cl-svg:draw (canvas-matrix canvas)
                (:line  :x1 (first (canvas-prev-point canvas))
                        :y1 (second (canvas-prev-point canvas))
