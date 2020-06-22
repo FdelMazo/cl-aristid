@@ -54,7 +54,7 @@ Drawing the Dragon Curve with `cl-aristid`
 We now want to define the different aristids of our fractal. We are calling an 'aristid' to each symbol on our Lindenmayer alphabet that does _something_, that is, to any drawing function. If we check the [Dragon Curve definition](https://en.wikipedia.org/wiki/L-system#Example_6:_Dragon_curve), we have 3 aristids (F, + and -). As LISP already has defined the `+` and `-` symbols, we will replace them with `RIGHT` and `LEFT`
 
 ```lisp
-(defaristid F :len 2) ; The letter F draws forward a line. The reason we use 2 as length is explained in the Interface section
+(defaristid F :len 2) ; The letter F draws forward a line of length 2.
 (defaristid LEFT :angle 90) ; LEFT will turn left 90 degrees
 (defaristid RIGHT :angle -90) ; RIGHT will turn right 90 degrees
 ```
@@ -110,11 +110,9 @@ defaristid symbol :angle 0 :len 0 :nodraw nil :color "black"
 
 The macro `defaristid` is used to create a new aristid.
 
-It receives the name of the symbol we are defining, and a pack of optional arguments which serve as the drawing actions. `angle` means the change of direction in the current drawing, `len` means how many dots will be drawn forward, `nodraw` can be set to true to only move the direction without actually drawing, and `color` can be set to any of the [140 HTML](https://htmlcolorcodes.com/color-names/) color names or even a hex value.
+It receives the name of the symbol we are defining, and a pack of optional arguments which serve as the drawing actions. `angle` means the change of direction in the current drawing, `len` means how many dots will be drawn forward (i.e, the length of the line), `nodraw` can be set to true to only move the direction without actually drawing, and `color` can be set to any of the [140 HTML](https://htmlcolorcodes.com/color-names/) color names or even a hex value.
 
 - if both `angle` and `len` are specified, the drawing will first draw forward, and then change the angle
-
-- `len` is specified in units of dots, so if you want to draw a contiguous line that rotates (e.g. dragon curve), you can specify `len` as 2, because the first dot will be drawn, then drawing 2 forward from that will get you a 3 dotted line, then you rotate and already have the first of your new line already drawn (the last from the previous line) and so on
 
 ```lisp
 make-fractal :name name :axiom axiom :rules rules
@@ -134,7 +132,7 @@ The function `draw` takes a `fractal` structure and draws it's `gen` iteration, 
 
 The bracket symbols (`[` and `]`) are symbols defined by Lindenmayer to save and restore the current direction of the l-system, so that when enclosing a list of symbols between brackets, a new "branch" starts to be drawn. [One fractal plant](https://en.wikipedia.org/wiki/L-system#Example_7:_Fractal_plant) has one of its rules as "(X → F+[[X]-X]-F[-FX]+X)". This can be achieved in `cl-aristid` with `(defrule X -> (F RIGHT [ [ X ] LEFT X ] LEFT F [ LEFT F X ] RIGHT X))`
 
-###  <a name='StochasticLsystems'></a>Stochastic L-systems
+### <a name='StochasticLsystems'></a>Stochastic L-systems
 
 `cl-aristid` supports stochastic L-systems, which are systems where rules can be chosen with a certain probability on each iteration of the rewrite. So for example, you want to draw a fractal in which one of it's symbols gets replaced by a list of new symbols only a third of the times it is called, you can define that rule with `:prob` such as `(defrule A -> (A RIGHT B F RIGHT) :prob 0.33)`
 
