@@ -97,7 +97,7 @@ We are now ready to draw! We just call the `draw` function that receives our fra
 
 8. Let's pass it through [vivus](https://maxwellito.github.io/vivus-instant/) for one last look
 
-<img src="./dragon_010_animated.svg" width="500">
+<img src="./img/dragon_010_animated.svg" width="500">
 
 ## 3. <a name='Interface'></a>Interface
 
@@ -169,7 +169,7 @@ So I hear you want a fractal plant which has some branches in white and some in 
 (draw tree-fractal 6)
 ```
 
-<img src="./img/stochastic-fractal-plant_006.svg" width="400">
+<img src="./img/freaky-fractal-plant_006.svg" width="400">
 
 ### <a name='Rainbows'></a>Rainbows
 
