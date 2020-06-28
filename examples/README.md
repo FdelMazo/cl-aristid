@@ -1,0 +1,16 @@
+<img src="./img/arrowhead_008.svg" width="500">
+<img src="./img/binary-tree_006.svg" width="500">
+<img src="./img/crystal_005.svg" width="500">
+<img src="./img/weirdstuff_003.svg" width="500">
+<img src="./img/dragon_010.svg" width="500">
+<img src="./img/fractal-plant_004.svg" width="500">
+<img src="./img/hilbert-curve_006.svg" width="500">
+<img src="./img/peano-gosper-curve_004.svg" width="500">
+<img src="./img/epholys-snowflake_005.svg" width="500">
+<img src="./img/saupe-bush_010.svg" width="500">
+<img src="./img/koch_004.svg" width="500">
+<img src="./img/levy_010.svg" width="500">
+<img src="./img/quadratic_003.svg" width="500">
+<img src="./img/snowflake_003.svg" width="500">
+<img src="./img/triangle_005.svg" width="500">
+<img src="./img/davis-knuth-dragon_010.svg" width="500">

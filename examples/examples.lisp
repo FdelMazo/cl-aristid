@@ -27,8 +27,8 @@
 ;;; We do it again with a new fractal
 
 ;; We add or modify the aristids
-(defaristid A :len 5)
-(defaristid B :len 5)
+(defaristid A :len 5 :color "crimson")
+(defaristid B :len 5 :color "crimson")
 (defaristid LEFT :angle 120)
 (defaristid RIGHT :angle -120)
 

@@ -2,7 +2,7 @@
 
 Draw Lindenmayer Systems with Common LISP!
 
-<img src="./examples/logo.svg" width="400">
+<img src="./img/logo.svg" width="400">
 
 - [Introduction](#Introduction)
 - [Example](#Example)
@@ -33,7 +33,7 @@ An L-system requires 3 things to be defined:
 
 ## 2. <a name='Example'></a>Example
 
-You can read the [examples.lisp](examples.lisp) file to see the code for several fractals, or just run `make` to see them in action.
+Go to the [examples](examples/) folder to look at the code for several fractals and see them in action by running `make`!
 
 Drawing the Dragon Curve with `cl-aristid`
 
@@ -93,11 +93,11 @@ We are now ready to draw! We just call the `draw` function that receives our fra
 
 7. Result
 
-<img src="./examples/dragon_010.svg" width="300">
+<img src="./examples/img/dragon_010.svg" width="300">
 
 8. Let's pass it through [vivus](https://maxwellito.github.io/vivus-instant/) for one last look
 
-<img src="./examples/dragon_010_animated.svg" width="500">
+<img src="./dragon_010_animated.svg" width="500">
 
 ## 3. <a name='Interface'></a>Interface
 
@@ -169,13 +169,30 @@ So I hear you want a fractal plant which has some branches in white and some in 
 (draw tree-fractal 6)
 ```
 
-<img src="./examples/stochastic-fractal-plant_006.svg" width="400">
+<img src="./img/stochastic-fractal-plant_006.svg" width="400">
 
 ### <a name='Rainbows'></a>Rainbows
 
 Add `:color "rainbow"` to your aristid to give it more groove
 
-<img src="./examples/rainbow-quadratic_003.svg" width="500">
+```lisp
+(defaristid F :len 2 :color "rainbow")
+(defaristid LEFT :angle 90)
+(defaristid RIGHT :angle -90)
+
+(defparameter rule-1 (defrule X -> (X F X LEFT Y F LEFT Y F RIGHT F X RIGHT F X LEFT Y F LEFT Y F F X RIGHT Y F RIGHT F X F X Y F LEFT F X RIGHT Y F RIGHT F X F X RIGHT Y F LEFT F X Y F LEFT Y F LEFT F X RIGHT F X RIGHT Y F Y F LEFT)))
+(defparameter rule-2 (defrule Y -> (RIGHT F X F X LEFT Y F LEFT Y F RIGHT F X RIGHT F X Y F RIGHT F X LEFT Y F Y F LEFT F X LEFT Y F RIGHT F X Y F Y F LEFT F X LEFT Y F F X RIGHT F X RIGHT Y F LEFT Y F LEFT F X RIGHT F X RIGHT Y F Y)))
+
+(defparameter axiom '(LEFT Y F))
+
+(defparameter fractal (make-fractal :name "freaky-quadratic"
+										:rules (list rule-1 rule-2)
+										:axiom axiom))
+
+(draw fractal 3)
+```
+
+<img src="./img/rainbow-quadratic_003.svg" width="500">
 
 ## 5. <a name='GettingstartedwithCommonLISP'></a>Getting started with Common LISP
 
