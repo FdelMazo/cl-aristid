@@ -1,4 +1,4 @@
-(pushnew (truename ".") asdf:*central-registry*)
+(pushnew (truename "..") asdf:*central-registry*)
 (ql:quickload "cl-aristid")
 (use-package 'cl-aristid)
 
@@ -151,6 +151,8 @@
 
 ;; Davis-Knuth Dragon
 (defaristid F :len 2 :color "salmon")
+(defaristid A :len 0 :nodraw t :color "salmon")
+(defaristid B :len 0 :nodraw t :color "salmon")
 (defaristid LEFT :angle 90)
 (defaristid RIGHT :angle -90)
 (defparameter fractal (make-fractal :name "davis-knuth-dragon"
@@ -176,7 +178,8 @@
 (draw fractal 10)
 
 
-(defaristid F :len 5)
+(defaristid A :len 2 :color "PaleTurquoise")
+(defaristid B :len 2 :color "Plum")
 (defaristid LEFT :angle 60)
 (defaristid RIGHT :angle -60)
 (defparameter fractal (make-fractal :name "peano-gosper-curve"
@@ -204,5 +207,42 @@
 										(defrule F -> (F F)))
 									:axiom '([ X ] [ LEFT X ] [ RIGHT X ] [ LEFT LEFT X ] [ RIGHT RIGHT X ] [ LEFT LEFT LEFT X ] [ RIGHT RIGHT RIGHT X ] [ RIGHT RIGHT RIGHT RIGHT X ])))
 (draw fractal 5)
+
+(defaristid F :len 2)
+(defaristid B :len 2 :nodraw t)
+(defaristid LEFT :angle 90)
+(defaristid RIGHT :angle -90)
+(defparameter fractal (make-fractal :name "island"
+									:rules (list
+										(defrule B -> (b b b b b b))
+										(defrule F -> (F LEFT B RIGHT F F LEFT F LEFT F F LEFT F B LEFT F F RIGHT B LEFT F F RIGHT F RIGHT F F RIGHT F B RIGHT F F F)))
+									:axiom '(F LEFT F LEFT F LEFT F)))
+(draw fractal 2)
+
+
+(defaristid F :len 2 :color "Wheat")
+(defaristid G :len 2 :nodraw t)
+(defaristid X :len 2)
+(defaristid LEFT :angle 9)
+(defaristid RIGHT :angle -9)
+(defparameter fractal (make-fractal :name "vibes"
+									:rules (list
+										(defrule F -> (F [ RIGHT RIGHT G RIGHT F ] LEFT LEFT LEFT [ LEFT LEFT F ]))
+										(defrule G -> (G G))
+										(defrule X -> ([ F RIGHT RIGHT F RIGHT RIGHT RIGHT RIGHT F RIGHT RIGHT F RIGHT RIGHT RIGHT F ])))
+									:axiom '(X)))
+(draw fractal 7)
+
+
+(defaristid X :len 0)
+(defaristid F :len 5 :color "MediumSlateBlue")
+(defaristid LEFT :angle 15)
+(defaristid RIGHT :angle -15)
+(defparameter fractal (make-fractal :name "mandala"
+									:rules (list
+										(defrule F -> (F F [ RIGHT RIGHT F ] [ LEFT LEFT F ]))
+										(defrule X -> ([ F ] [ LEFT F ] [ RIGHT F ] [ LEFT LEFT F ] [ RIGHT RIGHT F ] [ LEFT LEFT LEFT F ] [ RIGHT RIGHT RIGHT F ] [ LEFT LEFT LEFT LEFT F ] [ RIGHT RIGHT RIGHT RIGHT F ] )))
+									:axiom '(X RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT X RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT X)))
+(draw fractal 4)
 
 (quit)

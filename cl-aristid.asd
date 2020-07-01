@@ -1,6 +1,6 @@
 (asdf:defsystem #:cl-aristid
-  :description "Export Lindenmayer Systems to SVG with Common LISP!"
-  :author "https://github.com/FdelMazo/cl-aristid"
+  :description " Draw Lindenmayer Systems with Common LISP!"
+  :author "FdelMazo, JDSanto"
   :license  "MIT"
   :version "0.0.1"
   :serial t

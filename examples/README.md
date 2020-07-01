@@ -1,3 +1,6 @@
+<img src="./img/vibes_007.svg" width="500">
+<img src="./img/mandala_004.svg" width="500">
+<img src="./img/island_002.svg" width="500">
 <img src="./img/arrowhead_008.svg" width="500">
 <img src="./img/binary-tree_006.svg" width="500">
 <img src="./img/crystal_005.svg" width="500">
