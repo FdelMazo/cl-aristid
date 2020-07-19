@@ -13,7 +13,6 @@ Draw Lindenmayer Systems with Common LISP!
   - [Colors](#Colors)
   - [Everything together](#Everythingtogether)
   - [Rainbows](#Rainbows)
-- [Getting started with Common LISP](#GettingstartedwithCommonLISP)
 
 ## 1. <a name='Introduction'></a>Introduction
 
@@ -37,10 +36,10 @@ Go to the [examples](examples/) folder to look at the code for several fractals 
 
 Drawing the Dragon Curve with `cl-aristid`
 
-1. First, we want to enter SBCL (just write `sbcl` in the terminal, inside the root of the repository) and load this system
+1. First, we want to enter SBCL (just write `sbcl` in the terminal, inside the root of the repository) and load this package
 
 ```lisp
-(pushnew (truename ".") asdf:*central-registry*)
+(ql:update-dist "quicklisp")
 (ql:quickload "cl-aristid")
 ```
 
@@ -193,42 +192,3 @@ Add `:color "rainbow"` to your aristid to give it more groove
 ```
 
 <img src="./img/rainbow-quadratic_003.svg" width="500">
-
-## 5. <a name='GettingstartedwithCommonLISP'></a>Getting started with Common LISP
-
-1. Install a Common LISP interpreter
-
-```
-
-sudo apt install sbcl
-
-```
-
-2. Install QuickLisp, the Common LISP library manager
-
-```
-
-curl -O https://beta.quicklisp.org/quicklisp.lisp
-sbcl --load quicklisp.lisp
-
-* (quicklisp-quickstart:install)
-* (ql:add-to-init-file)
-
-```
-
-3. Enter SBCL from within the repo root and load this package
-
-```
-
-sbcl
-
-* (pushnew (truename ".") asdf:*central-registry*)
-* (ql:quickload "cl-aristid")
-
-```
-
-4. You have now available the exposed function of this library, detailed above. You can use them by calling `(cl-aristid:function args)` within SBCL.
-
-Quicktip:
-
-Install `sudo apt install rlwrap` and add `alias sbcl="rlwrap sbcl "` to your `.bashrc` or `.zshrc` to have history search (CTRL+R - UP arrow - DOWN arrow) inside SBCL
