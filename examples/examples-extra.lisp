@@ -244,4 +244,19 @@
 									:axiom '(X RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT X RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT X)))
 (draw fractal 4)
 
+;; somewhat occult-looking fractal
+(defaristid F :len 5 :color "rainbow")
+(defaristid LEFT :angle 72)
+
+(defparameter occult-rules
+    (list (defrule F -> (F F LEFT F LEFT F LEFT F LEFT F LEFT F F))))
+
+(defparameter occult-axiom '(F LEFT F LEFT F LEFT F LEFT F LEFT F))
+
+(defparameter fractal (make-fractal :name "somewhat-occult"
+                                        				:rules occult-rules
+                                        				:axiom occult-axiom))
+
+(draw fractal 3)
+
 (quit)
