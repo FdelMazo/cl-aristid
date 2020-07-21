@@ -18,3 +18,4 @@
 <img src="./img/triangle_005.svg" width="500">
 <img src="./img/davis-knuth-dragon_010.svg" width="500">
 <img src="./img/somewhat-occult_003.svg" width="500">
+<img src="./img/the-phoenix_008.svg" width="500">

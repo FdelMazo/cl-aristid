@@ -244,7 +244,7 @@
 									:axiom '(X RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT X RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT RIGHT X)))
 (draw fractal 4)
 
-;; somewhat occult-looking fractal
+;; Somewhat occult-looking fractal
 (defaristid F :len 5 :color "rainbow")
 (defaristid LEFT :angle 72)
 
@@ -258,5 +258,22 @@
                                         				:axiom occult-axiom))
 
 (draw fractal 3)
+
+;; The Phoenix
+(defaristid A :len 5 :color "gold")
+(defaristid B :len 5 :color "red")
+(defaristid P :len 5 :color "orangered")
+(defaristid LEFT :angle 30)
+(defaristid RIGHT :angle -30)
+
+(defparameter phoenix-rules
+	(list (defrule B -> (A [ RIGHT B ] [ B ] [ LEFT B ] P))))
+
+(defparameter phoenix-axiom '(B A P))
+
+(defparameter fractal (make-fractal :name "the-phoenix"
+										:rules phoenix-rules
+										:axiom phoenix-axiom))
+(draw fractal 8)
 
 (quit)
