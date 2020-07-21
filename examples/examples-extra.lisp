@@ -259,7 +259,7 @@
 
 (draw fractal 3)
 
-;; The Phoenix
+;; The Phoenix (inspired by fractal tree structures)
 (defaristid A :len 5 :color "gold")
 (defaristid B :len 5 :color "red")
 (defaristid P :len 5 :color "orangered")
