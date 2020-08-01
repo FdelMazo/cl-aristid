@@ -72,7 +72,7 @@
   (setf (canvas-dir canvas) (rotate-dir (canvas-dir canvas) angle))
   canvas)
 
-(defun create-svg (canvas)
+(defun create-svg (canvas bg) 
   (destructuring-bind (left top right bottom) (canvas-corners canvas)
     (let ((w (- right left)) (h (- bottom top)))
       (if (zerop w) (setq w 1))
@@ -80,7 +80,8 @@
       (cl-svg:make-svg-toplevel
           'cl-svg:svg-1.1-toplevel
           :width (* 100 w) :height (* 100 h)
-          :view-box (format nil "~,2f ~,2f ~,2f ~,2f" left top w h)))))
+          :view-box (format nil "~,2f ~,2f ~,2f ~,2f" left top w h)
+          :style (format nil "background: ~A" bg )))))
 
 (defun push-stack (canvas)
   (setf (canvas-stack canvas)

@@ -1,8 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" 
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg viewBox="4991.60 4865.23 125.02 134.77" height="13477.05" width="12501.51"
-    version="1.1" id="toplevel" xmlns="http://www.w3.org/2000/svg"
+<svg style="background: " viewBox="4991.60 4865.23 125.02 134.77"
+    height="13477.05" width="12501.51" version="1.1" id="toplevel"
+    xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
   <g stroke="black">
     <line x1="5000" y1="5000" x2="5000.34" y2="4999.06"

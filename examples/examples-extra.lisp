@@ -1,8 +1,9 @@
+(pushnew (truename "..") asdf:*central-registry*)
 (ql:quickload "cl-aristid")
 (use-package 'cl-aristid)
 
 ;;; Koch curve
-(defaristid F :len 2)
+(defaristid F :len 2 :color "white")
 (defaristid LEFT :angle 90)
 (defaristid RIGHT :angle -90)
 
@@ -14,7 +15,7 @@
 										:rules (list rule-1)
 										:axiom axiom))
 
-(draw fractal 4)
+(draw fractal 4 :background "black")
 
 
 ;;; Sierpinski arrowhead curve

@@ -25,10 +25,10 @@
       :do (if (fboundp c) (setq seq (funcall c seq)))
       :finally (return seq)))
 
-(defun draw-fractal (fractal gen)
+(defun draw-fractal (fractal gen background)
   (let* ((command-arr (commands gen (fractal-axiom fractal)
                                    (fractal-rules fractal)))
          (canvas (make-canvas))
-         (svg (create-svg (apply-commands canvas command-arr))))
+         (svg (create-svg (apply-commands canvas command-arr) background)))
     (svg-add-iteration svg canvas)
     svg))

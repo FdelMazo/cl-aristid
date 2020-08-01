@@ -1,3 +1,4 @@
+(pushnew (truename "..") asdf:*central-registry*)
 (ql:quickload "cl-aristid")
 (use-package 'cl-aristid)
 

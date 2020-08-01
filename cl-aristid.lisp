@@ -30,7 +30,7 @@
 (defun ] (canvas)
   (setq canvas (pop-stack canvas)))
 
-(defun draw (fractal gen)
+(defun draw (fractal gen &key (background ""))
   (with-open-file (f (format nil "~A_~3,'0d.svg" (fractal-name fractal) gen)
                   :direction :output :if-exists :supersede)
-    (cl-svg:stream-out f (draw-fractal fractal gen))))
+    (cl-svg:stream-out f (draw-fractal fractal gen background))))
