@@ -148,7 +148,7 @@ The whole drawing can have a colored background just by adding the `background` 
 
 ### <a name='EverythingTogether'></a>Everything together
 
-So I hear you want a fractal plant with a crimson background which has some branches in white and some in salmon? Hold my parenthesis!
+So I hear you want a fractal plant with a gray background which has some branches in white and some in salmon? Hold my parenthesis!
 
 ```lisp
 (defaristid F :len 4 :color "white")
@@ -167,7 +167,7 @@ So I hear you want a fractal plant with a crimson background which has some bran
                                     :rules freaky-fractal-rules
                                     :axiom axiom))
 
-(draw fractal 6 :background "crimson")
+(draw fractal 6 :background "gray")
 ```
 
 <img src="./img/freaky-fractal-plant_006.svg" width="400">
