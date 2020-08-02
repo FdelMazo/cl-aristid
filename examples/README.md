@@ -6,6 +6,7 @@
 <img src="./img/crystal_005.svg" width="500">
 <img src="./img/weirdstuff_003.svg" width="500">
 <img src="./img/penrose-tiling_005.svg" width="500">
+<img src="./img/penrose-tiling-mod_005.svg" width="500">
 <img src="./img/vicsek_004.svg" width="500">
 <img src="./img/dragon_010.svg" width="500">
 <img src="./img/fractal-plant_004.svg" width="500">
