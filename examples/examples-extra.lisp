@@ -277,4 +277,37 @@
 										:axiom phoenix-axiom))
 (draw fractal 8)
 
+;; Penrose Tiling
+(defaristid A :len 6 :color "white")
+(defaristid LEFT :angle 36)
+(defaristid RIGHT :angle -36)
+
+(defparameter penrose-rules
+	(list (defrule M -> (O A RIGHT RIGHT PP A LEFT LEFT LEFT LEFT N A [ LEFT O A LEFT LEFT LEFT LEFT M A ] RIGHT RIGHT))
+		  (defrule N -> (RIGHT O A LEFT LEFT PP A [ LEFT LEFT LEFT M A LEFT LEFT N A ] RIGHT))
+		  (defrule O -> (LEFT M A RIGHT RIGHT N A [ RIGHT RIGHT RIGHT O A RIGHT RIGHT PP A ] LEFT))
+		  (defrule PP -> (LEFT LEFT O A RIGHT RIGHT RIGHT RIGHT M A [ RIGHT PP A RIGHT RIGHT RIGHT RIGHT N A ] LEFT LEFT N A))))
+
+(defparameter penrose-axiom '([ N ] RIGHT RIGHT [ N ] RIGHT RIGHT [ N ] RIGHT RIGHT [ N ] RIGHT RIGHT [ N ]))
+
+(defparameter fractal (make-fractal :name "penrose-tiling"
+										:rules penrose-rules
+										:axiom penrose-axiom))
+(draw fractal 5 :background "black")
+
+;; Vicsek
+(defaristid F :len 3 :color "white")
+(defaristid LEFT :angle 90)
+(defaristid RIGHT :angle -90)
+
+(defparameter vicsek-rules
+	(list (defrule F -> (F RIGHT F LEFT F LEFT F RIGHT F))))
+
+(defparameter vicsek-axiom '(F RIGHT F RIGHT F RIGHT F))
+
+(defparameter fractal (make-fractal :name "vicsek"
+										:rules vicsek-rules
+										:axiom vicsek-axiom))
+(draw fractal 4 :background "black")
+
 (quit)
