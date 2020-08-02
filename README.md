@@ -66,8 +66,8 @@ After our aristids, we want to define the production rules. This rules are the o
 ```lisp
 ; We wrap every rule in a LISP list, to use as an argument later
 (defparameter dragon-rules
-	(list (defrule X -> (X RIGHT Y F RIGHT))
-		  (defrule Y -> (LEFT F X LEFT Y))))
+    (list (defrule X -> (X RIGHT Y F RIGHT))
+          (defrule Y -> (LEFT F X LEFT Y))))
 ```
 
 5. `make-fractal`
@@ -78,8 +78,8 @@ We want to call `make-fractal` with all of this attributes.
 
 ```lisp
 (defparameter dragon (make-fractal :name "dragon"
-								   :rules dragon-rules
-								   :axiom '(F X)))
+                                   :rules dragon-rules
+                                   :axiom '(F X)))
 ```
 
 6. `draw`
@@ -155,15 +155,15 @@ So I hear you want a fractal plant which has some branches in white and some in 
 (defaristid RIGHT :angle -25)
 
 (defparameter freaky-fractal-rules
-	(list (defrule F -> (F G) :prob 0.45)
-		  (defrule G -> (F F) )
-		  (defrule X -> (F RIGHT [ [ X ] LEFT X ] LEFT F [ LEFT F X ] RIGHT X))))
+    (list (defrule F -> (F G) :prob 0.45)
+          (defrule G -> (F F) )
+          (defrule X -> (F RIGHT [ [ X ] LEFT X ] LEFT F [ LEFT F X ] RIGHT X))))
 
 (defparameter axiom '(LEFT LEFT LEFT LEFT LEFT LEFT LEFT LEFT X))
 
 (defparameter fractal (make-fractal :name "freaky-fractal-plant"
-										:rules freaky-fractal-rules
-										:axiom axiom))
+                                    :rules freaky-fractal-rules
+                                    :axiom axiom))
 
 (draw tree-fractal 6)
 ```
@@ -185,8 +185,8 @@ Add `:color "rainbow"` to your aristid to give it more groove
 (defparameter axiom '(LEFT Y F))
 
 (defparameter fractal (make-fractal :name "freaky-quadratic"
-										:rules (list rule-1 rule-2)
-										:axiom axiom))
+                                    :rules (list rule-1 rule-2)
+                                    :axiom axiom))
 
 (draw fractal 3)
 ```
