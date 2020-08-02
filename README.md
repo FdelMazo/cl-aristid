@@ -128,7 +128,7 @@ The function `make-fractal` serves as the constructor for the `fractal` structur
 draw fractal gen
 ```
 
-The function `draw` takes a `fractal` structure and draws it's `gen` iteration, saving it in a `.svg` named `fractalname_gen.svg`.
+The function `draw` takes a `fractal` structure and draws it's `gen` iteration, saving it in a `.svg` named `fractalname_gen.svg`. The function also has an optional `background` parameter, to change the background color of the drawing.
 
 ## 4. <a name='Coolstuff'></a>Cool stuff
 
@@ -144,9 +144,11 @@ The bracket symbols (`[` and `]`) are symbols defined by Lindenmayer to save and
 
 The aristids you define have a `color` argument which can be set to any of the [140 HTML](https://htmlcolorcodes.com/color-names/) color names or hex value. For example `(defaristid A :len 8 :color "purple")`
 
+The whole drawing can have a colored background just by adding the `background` argument to any HTML color in the `draw` function, such as `(draw fractal 10 :background "black")`
+
 ### <a name='EverythingTogether'></a>Everything together
 
-So I hear you want a fractal plant which has some branches in white and some in salmon? Hold my parenthesis!
+So I hear you want a fractal plant with a crimson background which has some branches in white and some in salmon? Hold my parenthesis!
 
 ```lisp
 (defaristid F :len 4 :color "white")
@@ -165,7 +167,7 @@ So I hear you want a fractal plant which has some branches in white and some in 
                                     :rules freaky-fractal-rules
                                     :axiom axiom))
 
-(draw tree-fractal 6)
+(draw fractal 6 :background "crimson")
 ```
 
 <img src="./img/freaky-fractal-plant_006.svg" width="400">
