@@ -30,10 +30,10 @@
   (let ((matrix (cl-svg:make-group
                   (cl-svg:make-svg-toplevel 'cl-svg:svg-1.1-toplevel)
                   (:stroke "black")))
-        (init-point (list 5000 5000)))
+        (init-point (list 0 0)))
     (%make-canvas :matrix matrix :dir (list 0 1)
                               :point init-point :prev-point init-point
-                              :corners (list 5000 5000 5000 5000)
+                              :corners (list 0 0 0 0)
                               :stack (list))))
 
 (defun draw-point (canvas &optional (color ""))
@@ -72,14 +72,14 @@
   (setf (canvas-dir canvas) (rotate-dir (canvas-dir canvas) angle))
   canvas)
 
-(defun create-svg (canvas bg) 
+(defun create-svg (canvas bg)
   (destructuring-bind (left top right bottom) (canvas-corners canvas)
     (let ((w (- right left)) (h (- bottom top)))
       (if (zerop w) (setq w 1))
       (if (zerop h) (setq h 1))
       (cl-svg:make-svg-toplevel
           'cl-svg:svg-1.1-toplevel
-          :width (* 100 w) :height (* 100 h)
+          :width (* 10 w) :height (* 10 h)
           :view-box (format nil "~,2f ~,2f ~,2f ~,2f" left top w h)
           :style (format nil "background: ~A" bg )))))
 
